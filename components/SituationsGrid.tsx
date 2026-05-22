@@ -11,14 +11,13 @@ export default function SituationsGrid() {
           <a
             key={s.slug}
             href={`#${s.slug}`}
-            className="group relative bg-white rounded-2xl p-4 flex flex-col items-center text-center gap-2 border-[1.5px] border-gray-200 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200"
-            style={{ borderColor: undefined }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.borderColor = s.color;
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.borderColor = "";
-            }}
+            style={
+              {
+                "--card-color": s.color,
+                "--card-bg": s.bg,
+              } as React.CSSProperties
+            }
+            className="group relative bg-white rounded-2xl p-4 flex flex-col items-center text-center gap-2 border-[1.5px] border-gray-200 hover:border-[var(--card-color)] hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200"
           >
             <div
               className="w-12 h-12 rounded-2xl flex items-center justify-center text-2xl group-hover:scale-110 transition"
